@@ -18,6 +18,9 @@ RUN conda env create --file conda_environment.yml
 # This isn't strictly necessary, but is likely good for consistency
 SHELL ["conda", "run", "--name", "housing", "/bin/bash", "-c"]
 
+# Add activate to bash so conda can actually do things
+SHELL ["source","/etc/profile.d/conda.sh"]
+
 # Activate the conda environment
 SHELL ["conda", "activate", "housing"]
 
