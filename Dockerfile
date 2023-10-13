@@ -24,5 +24,8 @@ SHELL ["source","/etc/profile.d/conda.sh"]
 # Activate the conda environment
 SHELL ["conda", "activate", "housing"]
 
+# Run the python script
+SHELL ["python", "create_model.py"]
+
 # Open ports
 EXPOSE 80 5000
