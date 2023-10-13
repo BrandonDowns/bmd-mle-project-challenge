@@ -12,7 +12,7 @@ We also believe that success in a project includes communication of the
 solution to stakeholders.  Once you've completed the project, you will
 deliver present your solution to our team.
 The context of this project mocks a real-world problem involving real estate.
-When you present to us, we would like you to pretend that we real estate
+When you present to us, we would like you to pretend that we are real estate
 professionals rather than engineers.  Once you've finished that presentation,
 we will dig deeper into the technical details of the solution.
 
@@ -57,7 +57,7 @@ Sound Realty helps people sell homes in the Seattle area.
 They currently spend too much time and effort on estimating the value of
 properties.
 One of their staff has heard a lot about machine learning (ML) and
-has created a basic model to estimate the value of propeties.
+has created a basic model to estimate the value of properties.
 The basic model uses only numeric variables and ignores some other attributes.
 Despite the simplicity of this model, the folks at Sound are impressed
 with the proof of concept and would now like to use this model to streamline
