@@ -15,7 +15,14 @@ RUN conda update --name base conda
 RUN conda env create --file conda_environment.yml
 
 # Edit the shell command so we can launch python scripts from within the newly created conda environment
+# This isn't strictly necessary, but is likely good for consistency
 SHELL ["conda", "run", "--name", "housing", "/bin/bash", "-c"]
 
-# Define an entry-point for the docker image such that it execute the main.py python script of the application
+# Activate the conda environment
+SHELL ["conda", "activate", "housing"]
+
+# Define an entry-point for the docker image such that it executes the main.py python script of the application
 ENTRYPOINT ["conda", "run", "--name", "housing", "python", "create_model.py"]
+
+# Open ports
+EXPOSE 80 5000
