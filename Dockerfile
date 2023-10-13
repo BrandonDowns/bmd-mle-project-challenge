@@ -1,5 +1,5 @@
 # Use an official Anaconda runtime as a parent image
-FROM continuumio/miniconda3
+FROM continuumio/anaconda3
 LABEL authors="BrandonDowns"
 
 # Set the working directory in the container to /app
@@ -20,9 +20,6 @@ SHELL ["conda", "run", "--name", "housing", "/bin/bash", "-c"]
 
 # Activate the conda environment
 SHELL ["conda", "activate", "housing"]
-
-# Define an entry-point for the docker image such that it executes the main.py python script of the application
-ENTRYPOINT ["conda", "run", "--name", "housing", "python", "create_model.py"]
 
 # Open ports
 EXPOSE 80 5000
