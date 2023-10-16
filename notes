@@ -1,0 +1,44 @@
+Starting from scratch (windows environment)
+
+0. Start Spotify
+0.5 Install Chocolatey
+1. Install Docker
+2. Download and unpack zip
+3. Notice there's a .idea, download intelliJ community
+4. Open in intelliJ, install Docker plugins
+4.5 install python 3
+5. Read about Conda
+5.5 Install Conda choco install anaconda3
+6. Have perplexity.ai generate a dockerfile for an anaconda environment
+-this is important because it's using a different requirements context than I'm used to, which is requirements.txt
+7. Run docker image
+- FAILED with error EnvironmentLocationNotFound: Not a conda environment: /opt/conda/envs/app
+--app might not be the right name, trying "housing" from the .yml
+############# One hour mark
+8. Container died with error: python: can't open file '/app/main.py': [Errno 2] No such file or directory
+-pointed to wrong .py, whooops
+9. Container now crashing with no logs
+-trying to activate and expose ports to keep it running
+--was failing because it was running create_model.py before the environment was active
+10. can't get it working, trying removing the ENTRYPOINT
+11. I can't get conda to work on windows or in intelliJ, don't have time to set up a linux virtual server
+12. Miniconda doesn't include the conda activate command, trying anaconda3
+-but I did get the container to stay up
+13. I've never created an API endpoint, so asking perplexity.ai how to do that
+-this is much more difficult that expected
+14. changed to bash in the container
+-source /etc/profile.d/conda.sh
+######## Two hour mark
+15. Update dockerfile to run model
+16. Attempting a JSON endpoint
+-using this example: https://github.com/eaccmk/node-app-http-docker/tree/main
+##### break at 2.5 hours
+17. changed dockerfile to use bash
+18. Can't get conda to activate anymore
+### 3 hour end
+
+
+Notes:
+ would create a docker-compose.yml file for manual scaling
+ would create a load balancer for autoscaling that could trigger usage of different "docker-copose up --scale mle-project-challenge=$WHATEVER"
+
