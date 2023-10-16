@@ -26,15 +26,13 @@ RUN conda update --name base conda
 # Create a Conda environment and install the pip packages defined in YAML file
 RUN conda env create --file conda_environment.yml
 
+# Add activate to bash so conda can actually do things
+SHELL ["source","/etc/profile.d/conda.sh"]
+
 #we need bash for conda stuff
 SHELL ["/bin/bash", "-c"]
 
-# Edit the shell command so we can launch python scripts from within the newly created conda environment
-# This isn't strictly necessary, but is likely good for consistency
-RUN ["conda", "run", "--name", "housing", "/bin/bash", "-c"]
-
-# Add activate to bash so conda can actually do things
-RUN ["source","/etc/profile.d/conda.sh"]
+RUN ["conda", "run", "--name", "housing"]
 
 # Activate the conda environment
 RUN ["conda", "activate", "housing"]
